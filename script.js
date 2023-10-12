@@ -1,25 +1,24 @@
-const width = document.documentElement.clientWidth;
 let isMouseDown = false;
-let prevPos = 0;
+let startPos = 0;
 let currentTranslate = 0;
 const gallery = document.getElementById("gallery__wrapper");
-document.onmousemove = e =>{
+document.addEventListener('mousemove', e=>{
     if(isMouseDown){
-        const mouseDelta = (e.clientX - startPos);
+        const mouseDelta = e.clientX - startPos;
+        console.log(currentTranslate);
         gallery.style.transform = `translate(${currentTranslate + mouseDelta}px, -50%)`;
-        prevPos = currentPos;
     }
-}
+})
 document.addEventListener('mousedown', e=>{
     if(e.button===0){
-        isMouseDown= true;
+        isMouseDown = true;
         startPos = e.clientX;
     }
 });
 document.addEventListener('mouseup', e=>{
-    if(e.button === 0){
+    if(e.button === 0 && isMouseDown){
+        currentTranslate += e.clientX - startPos;
         isMouseDown = false;
-        currentTranslateX += e.clientX - startPos;
     }
 });
 
