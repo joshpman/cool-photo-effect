@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    background-color: rgb(32, 32, 32);
+    overflow: hidden;
+}
+#gallery__wrapper{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*translate centers element inside of parent, (x-offset, y-offset)*/
+    transform: translate(0%, -50%);
+    gap: 2vw;
+    
+}
+.photo{
+    width: 10vw;
+    height: 30vh;
+    object-fit: cover;
+    user-select: none;
+}
